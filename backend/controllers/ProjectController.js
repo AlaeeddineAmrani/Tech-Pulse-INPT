@@ -1,4 +1,4 @@
-const Project = require('../backend/models/Project.js');
+const Project = require('../models/Project.js');
 
 async function getProjects(req, res){
     try{
@@ -17,9 +17,20 @@ async function getOneProject(req, res) {
     const projet = await Project.findOne({ full_name: req.params.nomDuProjet });
     res.json(projet);
 }
-
+// Ajouter un POST pour qu'on puisse envoyer des données !
+async function createProject(req, res) {
+    try {
+        const nouveauProjet = new Project(req.body);
+        const projetSauvegarde = await nouveauProjet.save();
+        res.status(201).json(projetSauvegarde);
+    } catch (erreur) {
+        console.error("Erreur lors du POST :", erreur);
+        res.status(400).json({ message: "Erreur lors de la création", details: erreur.message });
+    }
+}
 
 module.exports = {
     getProjects,
-    getOneProject
+    getOneProject,
+    createProject
 }

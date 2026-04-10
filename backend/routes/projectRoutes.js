@@ -11,5 +11,8 @@ router.get('/', projectController.getProjects);
 // Si on va sur /api/projects/facebook/react -> Donne juste React
 router.get('/:nomDuProjet', projectController.getOneProject);
 
-// 3. On exporte le routeur
+// 3. On ajoute la route POST pour envoyer des données !
+router.post('/', projectController.createProject);
+
+// 4. On exporte le routeur
 module.exports = router;
