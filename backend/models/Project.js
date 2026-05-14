@@ -8,6 +8,7 @@ const projectSchema = new mongoose.Schema({
     language: String,
     stargazers_count: Number,
     forks_count: Number,
+    contributors_url: String,
     history: [{
         date: { type: Date, default: Date.now },
         stars: Number

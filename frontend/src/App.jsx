@@ -1,13 +1,18 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import PageHeader from './components/PageHeader';
+import ProjectCard from './components/ProjectCard';
+import { TextAlignCenter, TrendingUp } from 'lucide-react';
+import PageFooter from './components/PageFooter';
+import HeroSection from './components/HeroSection';
+import '../src/assets/styles/App.css'
 
 
 function App() {
 
   const [projets, setProjets] = useState([]);
   const [erreur, setErreur] = useState(null);
-  //const [projetSelectionne, setprojetSelectionne] = useState(null);
 
   const navigate = useNavigate();
 
@@ -29,66 +34,32 @@ function App() {
     recupererDonnees();
   }, []);
 
-
-
-  /*
-    async function ouvrirDetails(projet){
-        //window.location.href = `http://localhost:2500/api/projects/${project_full_name}`;
-        
-        const nomProjet = projet.full_name;
-        const oneProject = await axios(`http://localhost:2500/api/projects/${encodeURIComponent(nomProjet)}`)
-        const project = oneProject.data;
-  
-        navigate(`/${encodeURIComponent(nomProjet)}`);
-        setprojetSelectionne(project);
-    }
-  -*/
-
   function rediriger(projet) {
 
     const nomProjet = projet.full_name;
     let url = `/espace-visualisation/${encodeURIComponent(nomProjet)}`;
     navigate(url, { state: { projet } });
-    //setprojetSelectionne(projet);
   }
 
-  /*
-    function fermerModal(){
-      setprojetSelectionne(null);
-    }
-  */
-
-
   return (
-    <div className="bigDiv">
-      <h1 style={{ textAlign: 'center' }}>📊 Dashboard Tech Pulse INPT</h1>
+    <div className='bigDiv'>
+      <HeroSection />
 
       {erreur && <p style={{ color: 'red' }}>{erreur}</p>}
 
       {projets.length === 0 && !erreur && <p>Chargement des projets depuis MongoDB...</p>}
 
-      <ul className="allProjects">
+      <h1 className='trending-title'>
+        <TrendingUp className='trendingIcon' />
+        Trending Repositories
+      </h1>
+      
+      <div className='allProjects'>
         {projets.map((projet) => (
-
-          <div key={projet._id} className="projectCard" onClick={() => { rediriger(projet) }}>
-            <ul style={{ marginBottom: '10px' }}>
-              <img src={projet.avatar_url} alt={projet.full_name} width="60px" height="50px" ></img>
-            </ul>
-            <ul style={{ marginBottom: '10px' }}>
-              <strong>{projet.full_name}</strong>
-            </ul>
-            <ul style={{ marginBottom: '10px' }}>
-              Etoiles : {projet.stargazers_count}  ⭐
-            </ul>
-            <ul style={{ marginBottom: '10px' }}>
-              Forks : {projet.forks_count} ✂️
-            </ul>
-            <ul style={{ marginBottom: '10px' }}>
-              Language : {projet.language}  🖋️
-            </ul>
-          </div>
+          <ProjectCard key={projet.full_name} projet={projet} />
         ))}
-      </ul>
+      </div>
+      
     </div>
   );
 }

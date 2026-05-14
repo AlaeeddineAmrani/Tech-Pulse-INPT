@@ -1,0 +1,21 @@
+.bigDiv {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: var(--background);
+}
+
+.allProjects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+}
+
+.trendingIcon{
+    margin-right: 10px;
+    color: var(--neon-emerald);
+    margin-left: 20px;
+}
+
+.trending-title{
+    text-align: center;
+}

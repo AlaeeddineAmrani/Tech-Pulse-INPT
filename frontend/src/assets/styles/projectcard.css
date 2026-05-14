@@ -1,0 +1,112 @@
+.project-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.project-card{
+    border-radius: 10px;
+    border: 1px solid gray;
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+    background-color: var(--cardbg);
+    transition: transform 0.2s, background-color 0.2s, border-color 0.2s;
+}
+.project-card:hover{
+    transform: translateY(-5px);
+    border-color: var(--neon-cyan);
+    box-shadow: var(--border) 0px 4px 8px, #426d84 0px 6px 20px;
+    cursor: pointer;
+}
+
+
+.div1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 2px;
+    font-size: 14px;
+}
+.div1:hover{
+    color: #0c8ac8;
+}
+
+.card-link{
+    position:fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.div2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px;
+    margin-top: auto;
+}
+
+
+.card-star{
+    font-size: 14px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 2px solid #ece50e;
+    background-color: var(--yellow);
+    border-radius: 15px;
+    width: fit-content;
+    padding: 5px 5px;
+}
+.card-fork{
+    font-size: 14px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 2px solid #0c8ac8;
+    background-color: var(--neon-cyan);
+    border-radius: 15px;
+    width: fit-content;
+    padding: 5px 5px;
+}
+.card-lang{
+    font-size: 14px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 2px solid #0fd93e;
+    background-color: var(--neon-emerald);
+    border-radius: 15px;
+    width: fit-content;
+    padding: 5px 5px;
+}
+.card-desc{
+    font-size: 14px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+
+.full-name{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

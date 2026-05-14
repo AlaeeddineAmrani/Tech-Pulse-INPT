@@ -1,78 +1,42 @@
-* {
-    box-sizing: border-box;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --border: #e2e8f0;
+  --card: #ffffff;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --input-background: #ffffff;
+  --muted-foreground: #64748b;
+  --neon-cyan: #06b6d4;
+  --neon-purple: #a855f7;
+  --neon-emerald: #10b981;
+  --yellow: rgb(235, 244, 60);
+  --cardbg: rgb(240, 240, 235);
 }
 
-body {
-    background-color: rgb(218, 213, 213);
-}
-
-.projectCard {
-    border-radius: 5px;
-    border: 1px solid gray;
-    width: 270px;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 20px;
-    background-color: rgb(255, 255, 255);
-}
-
-.projectCard:hover {
-    transform: scale(1.02);
-    background-color: rgb(233, 233, 232);
-    border-color: rgb(125, 125, 225);
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #1f2937;
+  --border: #374151;
+  --input-background: #111827;
+  --muted-foreground: #fffc4f;
+  --neon-cyan: #22d3ee;
+  --neon-purple: #c084fc;
+  --neon-emerald: #34d399;
+  --yellow: rgb(175, 177, 55);
+  --cardbg: rgb(31, 31, 62);
 }
 
 .bigDiv {
-    padding: '20px';
-    font-family: 'Arial';
+    padding: 20px;
+    font-family: Arial, sans-serif;
 }
 
 .allProjects {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    /* 3 colonnes égales */
-    gap: 10px;
-    /* Espacement de 20px entre les boîtes */
-}
-
-.modal {
-    position: fixed;
-    /* Reste en place */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Fond opaque */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.modal-content {
-    background-color: white;
-    margin: 15% auto;
-    /* Centrage */
-    padding: 20px;
-    width: 50%;
-    border-radius: 5px;
-    border: 2px solid gray;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.btnRetour {
-    background-color: rgb(255, 62, 62);
-    border-radius: 5px;
-    width: 120px;
-    height: 30px;
-}
-
-.btnRetour:hover {
-    transform: scale(1.01);
-    background-color: rgb(212, 90, 90);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
 }

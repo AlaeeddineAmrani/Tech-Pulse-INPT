@@ -1,0 +1,82 @@
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 20px;
+    margin-bottom: 40px;
+    gap: 40px;
+}
+
+/* --- COLONNE GAUCHE --- */
+.hero-left {
+    flex: 1;
+    max-width: 55%;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--foreground, #ffffff);
+}
+
+.activity{
+    color: var(--foreground);
+
+}
+
+/* Le texte en dégradé rose/violet */
+.gradient-text {
+    background: linear-gradient(90deg, #ff4d6d, #8a2be2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: #8892b0;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Les boîtes de statistiques */
+.hero-stats {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 15px 20px;
+    border-radius: 12px;
+    min-width: 120px;
+    transition: transform 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+}
+
+.text-yellow { color: #e4f031; }
+.text-green { color: #3e863c; }
+.text-blue { color: #06b6d4; }
+
+.stat-label {
+    font-size: 0.85rem;
+    color: #8892b0;
+    margin: 0;
+}
+
+.hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
