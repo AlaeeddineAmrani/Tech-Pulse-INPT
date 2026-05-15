@@ -3,14 +3,14 @@ import PageFooter from '../src/components/PageFooter'
 import { Outlet } from 'react-router-dom'
 
 
-function Layout(){
+function Layout() {
     return (
         <>
             <PageHeader />
             <Outlet />
             <PageFooter />
         </>
-        
+
     )
 }
 export default Layout;

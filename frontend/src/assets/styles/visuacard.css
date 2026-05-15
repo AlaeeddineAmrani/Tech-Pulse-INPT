@@ -1,0 +1,43 @@
+/* ── VisuaCard ── */
+
+.visua-project {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin: 1.25rem 0;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.visua-project:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.div3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--foreground);
+}
+
+.desc {
+    font-size: 0.82rem;
+    color: var(--muted-foreground);
+    text-align: center;
+    line-height: 1.5;
+    margin: 0.5rem 1rem;
+}
+
+.div4 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+}

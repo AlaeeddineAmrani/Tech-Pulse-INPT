@@ -36,8 +36,18 @@ function PageHeader() {
                 <span className="header-title" onClick={() => {backHome()}}>
                     Tech Pulse INPT
                 </span>
-                <button className='header-btns'>Compare</button>
-                <button className='header-btns'>Trending</button>
+                <button className='header-btns' onClick={() => navigate('/compare')}>Compare</button>
+                <button className='header-btns' onClick={() => {
+                    const el = document.getElementById('trending-section');
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                        navigate('/');
+                        setTimeout(() => {
+                            document.getElementById('trending-section')?.scrollIntoView({ behavior: 'smooth' });
+                        }, 300);
+                    }
+                }}>Trending</button>
                 <button className='header-btns'>About Us</button>
             </div>
             

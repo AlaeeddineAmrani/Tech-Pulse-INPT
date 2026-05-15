@@ -3,31 +3,33 @@
 @tailwind utilities;
 
 :root {
-  --border: #e2e8f0;
-  --card: #ffffff;
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --input-background: #ffffff;
-  --muted-foreground: #64748b;
-  --neon-cyan: #06b6d4;
-  --neon-purple: #a855f7;
-  --neon-emerald: #10b981;
-  --yellow: rgb(235, 244, 60);
-  --cardbg: rgb(240, 240, 235);
+    --border: #e2e8f0;
+    --card: #ffffff;
+    --background: #f8fafc;
+    --foreground: #0f172a;
+    --input-background: #ffffff;
+    --muted-foreground: #64748b;
+    --neon-cyan: #06b6d4;
+    --neon-purple: #a855f7;
+    --neon-emerald: #10b981;
+    --yellow: #fbbf24;
+    --cardbg: #f1f5f9;
+    --accent: #818cf8;
 }
 
 .dark {
-  --background: #000000;
-  --foreground: #ffffff;
-  --card: #1f2937;
-  --border: #374151;
-  --input-background: #111827;
-  --muted-foreground: #fffc4f;
-  --neon-cyan: #22d3ee;
-  --neon-purple: #c084fc;
-  --neon-emerald: #34d399;
-  --yellow: rgb(175, 177, 55);
-  --cardbg: rgb(31, 31, 62);
+    --background: #0a0a1a;
+    --foreground: #f1f5f9;
+    --card: #131328;
+    --border: #1e293b;
+    --input-background: #111827;
+    --muted-foreground: #94a3b8;
+    --neon-cyan: #22d3ee;
+    --neon-purple: #c084fc;
+    --neon-emerald: #34d399;
+    --yellow: #fbbf24;
+    --cardbg: #131328;
+    --accent: #818cf8;
 }
 
 .bigDiv {

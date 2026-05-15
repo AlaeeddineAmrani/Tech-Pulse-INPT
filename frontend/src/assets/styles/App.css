@@ -1,13 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+
 .bigDiv {
-    padding: 20px;
     font-family: Arial, sans-serif;
     background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .allProjects {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
+    gap: 0;
 }
 
 .trendingIcon{
@@ -17,5 +23,9 @@
 }
 
 .trending-title{
+    text-align: center;
+}
+
+.trending-subtitle{
     text-align: center;
 }

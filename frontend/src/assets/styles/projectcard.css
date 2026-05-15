@@ -6,45 +6,46 @@
     padding: 20px;
 }
 
-.project-card{
-    border-radius: 10px;
-    border: 1px solid gray;
+.project-card {
+    border-radius: 1rem;
+    border: 1px solid var(--border);
     display: flex;
-    width: 400px;
+    width: 370px;
     flex-direction: column;
     justify-content: center;
     margin: 20px;
-    background-color: var(--cardbg);
-    transition: transform 0.2s, background-color 0.2s, border-color 0.2s;
+    background-color: var(--card);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.project-card:hover{
-    transform: translateY(-5px);
-    border-color: var(--neon-cyan);
-    box-shadow: var(--border) 0px 4px 8px, #426d84 0px 6px 20px;
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     cursor: pointer;
 }
 
 
-.div1{
+.div1 {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 15px;
     padding: 2px;
-    font-size: 14px;
+    font-size: 0.85rem;
 }
-.div1:hover{
+
+.div1:hover {
     color: #0c8ac8;
 }
 
-.card-link{
-    position:fixed;
+.card-link {
+    position: fixed;
     top: 10px;
     right: 10px;
 }
 
-.div2{
+.div2 {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -55,9 +56,8 @@
 }
 
 
-.card-star{
-    font-size: 14px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.card-star {
+    font-size: 0.82rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -69,9 +69,9 @@
     width: fit-content;
     padding: 5px 5px;
 }
-.card-fork{
-    font-size: 14px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+.card-fork {
+    font-size: 0.82rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -83,9 +83,9 @@
     width: fit-content;
     padding: 5px 5px;
 }
-.card-lang{
-    font-size: 14px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+.card-lang {
+    font-size: 0.82rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -97,15 +97,19 @@
     width: fit-content;
     padding: 5px 5px;
 }
-.card-desc{
-    font-size: 14px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+.card-desc {
+    font-size: 0.82rem;
+    color: var(--muted-foreground);
     display: flex;
     flex-direction: row;
     margin: 5px;
 }
 
-.full-name{
+.full-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--foreground);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

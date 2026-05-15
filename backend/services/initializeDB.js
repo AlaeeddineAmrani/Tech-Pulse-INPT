@@ -18,7 +18,11 @@ async function initialiserBaseDeDonnees() {
             const data = await fetchGithubData(nomDuProjet);
             
             if (data) {
-                await Project.create(data);
+                await Project.updateOne(
+                    { full_name: nomDuProjet },
+                    { $set: data },
+                    { upsert: true }
+                );
                 console.log(`✅ ${nomDuProjet} sauvegardé avec succès !`);
             }
         }

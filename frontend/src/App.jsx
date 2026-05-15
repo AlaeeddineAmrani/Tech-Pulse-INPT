@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import PageHeader from './components/PageHeader';
 import ProjectCard from './components/ProjectCard';
-import { TextAlignCenter, TrendingUp } from 'lucide-react';
-import PageFooter from './components/PageFooter';
+import { TrendingUp } from 'lucide-react';
 import HeroSection from './components/HeroSection';
+import CollectionsSection from './components/CollectionsSection';
 import '../src/assets/styles/App.css'
+
 
 
 function App() {
@@ -47,19 +47,20 @@ function App() {
 
       {erreur && <p style={{ color: 'red' }}>{erreur}</p>}
 
+      <div id="trending-section">
+        <h1 className='trending-title'>
+          <TrendingUp className='trendingIcon' />
+          Trending Repositories
+        </h1>
+        <p className='trending-subtitle'>Discover the most popular open-source projects gaining momentum right now</p>
+      </div>
       {projets.length === 0 && !erreur && <p>Chargement des projets depuis MongoDB...</p>}
-
-      <h1 className='trending-title'>
-        <TrendingUp className='trendingIcon' />
-        Trending Repositories
-      </h1>
-      
       <div className='allProjects'>
         {projets.map((projet) => (
           <ProjectCard key={projet.full_name} projet={projet} />
         ))}
       </div>
-      
+      <CollectionsSection />
     </div>
   );
 }

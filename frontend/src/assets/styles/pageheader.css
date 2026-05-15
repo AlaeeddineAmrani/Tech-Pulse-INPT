@@ -1,4 +1,4 @@
-.page-header{
+.page-header {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -9,88 +9,101 @@
     right: 0;
     background-color: var(--background);
     color: var(--foreground);
-    box-shadow: 0 2px 4px var(--border);
-    padding: 10px 20px;
-    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 1.5rem;
+    backdrop-filter: blur(12px);
     z-index: 1000;
 }
 
 
-.left-navbar{
+.left-navbar {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 20px;
+    gap: 0.75rem;
 }
 
-.right-navbar{
+.right-navbar {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 20px;
+    gap: 1rem;
 }
 
-.search-bar{
+.search-bar {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 5px;
-    border: 1px solid black;
-    border-radius: 10px;
-    box-shadow: var(--border) 0px 4px 8px, #426d84 1px 6px 5px;
+    gap: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 0 0.5rem;
+    background: var(--input-background);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.header-btns{
-    padding: 10px 10px;
-    background-color: var(--neon-cyan);
-    color: white;
-    border: none;
-    border-radius: 5px;
+.search-bar:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.15);
+}
+
+.header-btns {
+    padding: 0.45rem 0.9rem;
+    background: transparent;
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
     cursor: pointer;
-}
-.header-btns:hover{
-    background-color: #417c9c;
-    color: #333;
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.header-title{
-    font-size: 22px;
-    font-weight: bold;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding: 5px 5px;
+.header-btns:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.header-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
     cursor: pointer;
     color: var(--foreground);
+    transition: color 0.2s ease;
 }
-.header-title:hover{
-    transform: scale(1.01);
+
+.header-title:hover {
+    color: var(--accent);
 }
 
 
-input{
-    padding: 10px;
+input {
+    padding: 0.55rem;
     border: none;
     width: 250px;
     outline: none;
     background: transparent;
     color: var(--foreground);
+    font-size: 0.85rem;
 }
 
-.gitLogo{
-    width: 30px;
-    height: 30px;
-    transition: filter 0.3s ease;
+.gitLogo {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.2s ease, filter 0.3s ease;
 }
 
 .dark .gitLogo {
-    filter: invert(100%) brightness(200%); 
+    filter: invert(100%) brightness(200%);
 }
 
-.gitLogo:hover{
+.gitLogo:hover {
     transform: scale(1.1);
-    transition: transform 0.2s;
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
