@@ -1,53 +1,89 @@
-.page-footer{
+.page-footer {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     background-color: var(--background);
     color: var(--foreground);
-    box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
-    margin-top: 200px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    margin-top: 80px;
     padding: 10px 20px;
     backdrop-filter: blur(10px);
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 
-.left-footer{
+.left-footer {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 20px;
+    gap: 12px;
+    font-size: 0.85rem;
 }
 
-.right-footer{
+.right-footer {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
 }
 
-img{
+.right-footer img {
     width: 30px;
     height: 30px;
     border-radius: 10px;
 }
-img:hover{
+
+.right-footer img:hover {
     transform: scale(1.1);
     transition: transform 0.2s;
 }
 
 
-.gitLogo{
+.gitLogo {
     width: 30px;
     height: 30px;
     transition: filter 0.3s ease;
 }
 
 .dark .gitLogo {
-    filter: invert(100%) brightness(200%); 
+    filter: invert(100%) brightness(200%);
 }
 
-.gitLogo:hover{
+.gitLogo:hover {
     transform: scale(1.1);
     transition: transform 0.2s;
+}
+
+/* ── Tablet ── */
+@media (max-width: 768px) {
+    .page-footer {
+        margin-top: 40px;
+        padding: 10px 16px;
+    }
+
+    .left-footer {
+        font-size: 0.78rem;
+        gap: 8px;
+    }
+}
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+    .page-footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 12px;
+        margin-top: 30px;
+    }
+
+    .left-footer {
+        justify-content: center;
+        font-size: 0.75rem;
+    }
+
+    .right-footer {
+        justify-content: center;
+    }
 }

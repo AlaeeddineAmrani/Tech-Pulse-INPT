@@ -4,6 +4,7 @@
     padding: 3rem 2rem;
     max-width: 900px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .compare-title {
@@ -11,7 +12,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
-    font-size: 2rem;
+    font-size: clamp(1.3rem, 3vw, 2rem);
     font-weight: 700;
     color: var(--foreground);
     margin: 0 0 0.5rem;
@@ -24,7 +25,6 @@
     margin: 0 0 2.5rem;
 }
 
-/* ── Two panels side by side ── */
 .compare-panels {
     display: flex;
     gap: 1.5rem;
@@ -36,6 +36,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    min-width: 0;
 }
 
 .compare-vs {
@@ -55,7 +56,6 @@
     flex-shrink: 0;
 }
 
-/* ── Search input ── */
 .compare-search {
     display: flex;
     align-items: center;
@@ -88,7 +88,6 @@
     margin: 0;
 }
 
-/* ── Repo preview card ── */
 .compare-repo-card {
     background: var(--card);
     border: 1px solid var(--border);
@@ -130,7 +129,6 @@
     overflow: hidden;
 }
 
-/* ── Comparison table ── */
 .compare-table {
     margin-top: 2.5rem;
     display: flex;
@@ -162,7 +160,7 @@
     font-size: 0.82rem;
     font-weight: 600;
     color: var(--muted-foreground);
-    padding: 0 1.5rem;
+    padding: 0 1rem;
 }
 
 .compare-value {
@@ -179,4 +177,54 @@
 
 .compare-value.winner {
     color: var(--neon-emerald);
+}
+
+/* ── Tablet ── */
+@media (max-width: 768px) {
+    .compare-page {
+        padding: 2rem 1rem;
+    }
+
+    .compare-panels {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .compare-vs {
+        align-self: center;
+        margin-top: 0;
+    }
+
+    .compare-row {
+        padding: 0.75rem 1rem;
+    }
+
+    .compare-value {
+        font-size: 1.1rem;
+    }
+
+    .compare-label {
+        padding: 0 0.5rem;
+        font-size: 0.78rem;
+    }
+}
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+    .compare-page {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .compare-subtitle {
+        font-size: 0.82rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .compare-row {
+        padding: 0.6rem 0.75rem;
+    }
+
+    .compare-value {
+        font-size: 1rem;
+    }
 }

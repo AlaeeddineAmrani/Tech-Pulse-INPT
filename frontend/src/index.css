@@ -32,13 +32,9 @@
     --accent: #818cf8;
 }
 
-.bigDiv {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-}
-
-.allProjects {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
+/* Prevent horizontal overflow on all devices */
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
 }

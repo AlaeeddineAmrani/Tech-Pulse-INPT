@@ -2,6 +2,7 @@
 
 .collections-section {
     padding: 4rem 2rem;
+    width: 100%;
 }
 
 .collections-section .section-header {
@@ -23,7 +24,7 @@
 }
 
 .collections-section .section-header h2 {
-    font-size: 2rem;
+    font-size: clamp(1.4rem, 3vw, 2rem);
     font-weight: 700;
     color: var(--foreground);
     margin: 0 0 0.5rem;
@@ -36,7 +37,7 @@
 
 .collections-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 1.25rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -70,29 +71,12 @@
     opacity: 0.08;
 }
 
-.card-glow.theme-purple {
-    background: #a855f7;
-}
-
-.card-glow.theme-blue {
-    background: #3b82f6;
-}
-
-.card-glow.theme-green {
-    background: #10b981;
-}
-
-.card-glow.theme-orange {
-    background: #f97316;
-}
-
-.card-glow.theme-indigo {
-    background: #6366f1;
-}
-
-.card-glow.theme-red {
-    background: #ef4444;
-}
+.card-glow.theme-purple { background: #a855f7; }
+.card-glow.theme-blue { background: #3b82f6; }
+.card-glow.theme-green { background: #10b981; }
+.card-glow.theme-orange { background: #f97316; }
+.card-glow.theme-indigo { background: #6366f1; }
+.card-glow.theme-red { background: #ef4444; }
 
 .card-content {
     position: relative;
@@ -111,29 +95,12 @@
     margin-bottom: 1rem;
 }
 
-.modern-icon-box.theme-purple {
-    background: #a855f7;
-}
-
-.modern-icon-box.theme-blue {
-    background: #3b82f6;
-}
-
-.modern-icon-box.theme-green {
-    background: #10b981;
-}
-
-.modern-icon-box.theme-orange {
-    background: #f97316;
-}
-
-.modern-icon-box.theme-indigo {
-    background: #6366f1;
-}
-
-.modern-icon-box.theme-red {
-    background: #ef4444;
-}
+.modern-icon-box.theme-purple { background: #a855f7; }
+.modern-icon-box.theme-blue { background: #3b82f6; }
+.modern-icon-box.theme-green { background: #10b981; }
+.modern-icon-box.theme-orange { background: #f97316; }
+.modern-icon-box.theme-indigo { background: #6366f1; }
+.modern-icon-box.theme-red { background: #ef4444; }
 
 .card-text h3 {
     font-size: 1.05rem;
@@ -199,9 +166,35 @@
         opacity: 0;
         transform: translateY(16px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* ── Tablet ── */
+@media (max-width: 768px) {
+    .collections-section {
+        padding: 2.5rem 1rem;
+    }
+
+    .collections-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1rem;
+    }
+}
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+    .collections-section {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .collections-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modern-card {
+        padding: 1.25rem;
     }
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import Globe from 'react-globe.gl';
 import '../assets/styles/globegraph.css';
@@ -6,6 +6,21 @@ import '../assets/styles/globegraph.css';
 export default function GlobeGraph({ fullName }) {
     const [coordonnees, setCoordonnees] = useState([]);
     const [globeLoading, setGlobeLoading] = useState(true);
+    const [globeSize, setGlobeSize] = useState(400);
+    const containerRef = useRef(null);
+
+    // Measure container width and resize globe accordingly
+    useEffect(() => {
+        function handleResize() {
+            if (containerRef.current) {
+                const width = containerRef.current.offsetWidth - 48; // account for padding
+                setGlobeSize(Math.min(400, Math.max(200, width)));
+            }
+        }
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     useEffect(() => {
         const fetchLocations = async () => {
@@ -35,7 +50,7 @@ export default function GlobeGraph({ fullName }) {
     }, [fullName]);
 
     return (
-        <div className="globe-card">
+        <div className="globe-card" ref={containerRef}>
             <h3 className="globe-card-title">Localisation des Contributeurs</h3>
 
             {globeLoading ? (
@@ -45,8 +60,8 @@ export default function GlobeGraph({ fullName }) {
                 </div>
             ) : (
                 <Globe
-                    width={400}
-                    height={400}
+                    width={globeSize}
+                    height={globeSize}
                     backgroundColor="rgba(0,0,0,0)"
                     globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
                     ringsData={coordonnees}

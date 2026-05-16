@@ -23,6 +23,7 @@
     padding: 0.5rem;
     font-size: 0.85rem;
     color: var(--foreground);
+    flex-wrap: wrap;
 }
 
 .desc {
@@ -31,6 +32,7 @@
     text-align: center;
     line-height: 1.5;
     margin: 0.5rem 1rem;
+    word-break: break-word;
 }
 
 .div4 {
@@ -40,4 +42,40 @@
     justify-content: center;
     gap: 0.75rem;
     padding: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* ── Tablet ── */
+@media (max-width: 768px) {
+    .visua-project {
+        padding: 1rem;
+    }
+
+    .div3 {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .div3 img {
+        width: 70px !important;
+        height: 70px !important;
+    }
+}
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+    .visua-project {
+        padding: 0.75rem;
+        margin: 0.75rem 0;
+    }
+
+    .div3 img {
+        width: 56px !important;
+        height: 56px !important;
+    }
+
+    .desc {
+        margin: 0.25rem 0.5rem;
+        font-size: 0.78rem;
+    }
 }
