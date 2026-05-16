@@ -20,8 +20,11 @@ function App() {
 
     const recupererDonnees = async () => {
       try {
-
-        const reponse = await axios.get('http://localhost:2500/api/projects');
+        
+        const apiUrl = import.meta.env.DEV 
+          ? 'http://localhost:2500' 
+          : '/_/backend';
+        const reponse = await axios.get(`${apiUrl}/api/projects`);
 
 
         setProjets(reponse.data);

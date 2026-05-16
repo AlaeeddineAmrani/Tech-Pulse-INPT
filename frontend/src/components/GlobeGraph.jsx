@@ -10,8 +10,12 @@ export default function GlobeGraph({ fullName }) {
     useEffect(() => {
         const fetchLocations = async () => {
             try {
+                
+                const apiUrl = import.meta.env.DEV 
+                    ? 'http://localhost:2500' 
+                    : '/_/backend';
                 const reponse = await axios.get(
-                    `http://localhost:2500/api/projects/${encodeURIComponent(fullName)}/locations`
+                    `${apiUrl}/api/projects/${encodeURIComponent(fullName)}/locations`
                 );
                 //console.log("Données reçues du backend :", reponse.data);
                 const coordonneesFormatees = reponse.data.map(loc => ({
