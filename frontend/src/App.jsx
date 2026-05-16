@@ -45,7 +45,7 @@ function App() {
     <div className='bigDiv'>
       <HeroSection />
 
-      {erreur && <p style={{ color: 'red' }}>{erreur}</p>}
+      
 
       <div id="trending-section">
         <h1 className='trending-title'>
@@ -54,6 +54,7 @@ function App() {
         </h1>
         <p className='trending-subtitle'>Discover the most popular open-source projects gaining momentum right now</p>
       </div>
+      {erreur && <p style={{ color: 'red' }}>{erreur}</p>}
       {projets.length === 0 && !erreur && <p>Chargement des projets depuis MongoDB...</p>}
       <div className='allProjects'>
         {projets.map((projet) => (
