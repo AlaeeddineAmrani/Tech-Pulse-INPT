@@ -17,7 +17,11 @@ export default function PageRecherche(){
         const recupererDonnees = async () => {
         try {
 
-            const reponse = await axios.get(`http://localhost:2500/api/projects/recherche/${motCle}`);
+
+            const apiUrl = import.meta.env.DEV 
+                ? 'http://localhost:2500' 
+                : '/_/backend';
+            const reponse = await axios.get(`${apiUrl}/api/projects/recherche/${motCle}`);
 
             setResultats(reponse.data);
             setIsLoading(false);

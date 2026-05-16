@@ -17,7 +17,11 @@ export default function PageComparaison() {
 
         setLoading(prev => ({ ...prev, [side]: true }));
         try {
-            const resp = await axios.get(`http://localhost:2500/api/projects/recherche/${encodeURIComponent(mot)}`);
+
+            const apiUrl = import.meta.env.DEV 
+                ? 'http://localhost:2500' 
+                : '/_/backend';
+            const resp = await axios.get(`${apiUrl}/api/projects/recherche/${encodeURIComponent(mot)}`);
             const premier = resp.data[0] || null;
             if (side === 'left') {
                 setRepoLeft(premier)
