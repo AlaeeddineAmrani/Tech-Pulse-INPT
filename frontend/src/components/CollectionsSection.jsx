@@ -1,5 +1,5 @@
 import { FiCpu, FiCode, FiDatabase, FiCloud, FiSmartphone, FiShield, FiStar, FiArrowRight, FiTrendingUp } from 'react-icons/fi';
-import '../assets/styles/Collectionssection.css'
+import '../assets/styles/collectionssection.css'
 
 
 const collections = [
