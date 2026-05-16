@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/styles/HeroSection.css'; // Ajuste le chemin selon ton dossier
+import '../assets/styles/herosection.css'; // Ajuste le chemin selon ton dossier
 
 function HeroSection() {
     return (
