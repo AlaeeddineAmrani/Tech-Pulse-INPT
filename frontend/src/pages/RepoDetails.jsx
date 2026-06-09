@@ -152,20 +152,6 @@ const countryCoordinates = {
   ZW: { lat: -19.0154, lng: 29.1549 },
 };
 
-
-// Coordonnées mondiales par défaut pour animer le globe de façon spectaculaire
-const defaultHubLocations = [
-  { lat: 37.7749, lng: -122.4194, weight: 0.2 }, // San Francisco
-  { lat: 51.5074, lng: -0.1278, weight: 0.15 },   // London
-  { lat: 35.6762, lng: 139.6503, weight: 0.25 },  // Tokyo
-  { lat: 48.8566, lng: 2.3522, weight: 0.1 },    // Paris
-  { lat: 12.9716, lng: 77.5946, weight: 0.18 },   // Bangalore
-  { lat: -33.8688, lng: 151.2093, weight: 0.08 }, // Sydney
-  { lat: 31.2304, lng: 121.4737, weight: 0.22 },  // Shanghai
-  { lat: 52.5200, lng: 13.4050, weight: 0.12 },   // Berlin
-  { lat: 43.6532, lng: -79.3832, weight: 0.09 },  // Toronto
-];
-
 export default function RepoDetails() {
   const { repoId } = useParams();
   const decodedFullName = repoId ? decodeURIComponent(repoId) : '';
@@ -280,7 +266,7 @@ export default function RepoDetails() {
     setCoordonnees(prev => {
       // Si le globe n'est pas vide (OSSInsight a marché), on ne touche à rien
       if (prev && prev.length > 0) return prev;
-      
+
       // Sinon, on utilise la vraie donnée des contributeurs (obtenue via DemographicsContainer)
       const globeData = {};
       locations.forEach(loc => {
@@ -292,7 +278,7 @@ export default function RepoDetails() {
         globeData[key].weight += 0.05;
         globeData[key].creators += 1;
       });
-      
+
       const finalData = Object.values(globeData).map(d => ({
         ...d,
         weight: Math.min(d.weight, 1.0)

@@ -3,6 +3,7 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import '../css/RadarSante.css';
 
 export default function RepoHistogram({ projet }) {
+
   // Use 5 repository metrics to form the 5 sectors of the variable pie chart
   const rawData = [
     { name: 'Stars', value: projet?.stargazers_count || 0, color: '#4caefe' },
@@ -105,7 +106,7 @@ export default function RepoHistogram({ projet }) {
                     );
                   }}
                 >
-                  <Cell fill={item.color} />
+                  <Cell fill={item.color}/>
                 </Pie>
               );
             })}
