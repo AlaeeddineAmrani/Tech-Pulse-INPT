@@ -75,7 +75,7 @@ Unlike GitHub's native statistics — limited to a single repository at a time w
 
 > *The landing page features an animated SVG pulse graph, real-time platform statistics, a trending repositories grid, and six curated domain collection cards.*
 
-'./screenshots/homepage.png'
+![Homepage & Hero Section](screenshots/homepage.png)
 
 The Hero section displays:
 - An **animated dual-line SVG graph** with gradient fills and glow effects, simulating live data streams
@@ -101,7 +101,7 @@ The Hero section displays:
 
 > *The most feature-rich page (465 lines). Provides a comprehensive analytics view for any GitHub repository, combining data from MongoDB cache, GitHub REST/GraphQL APIs, and OSSInsight.*
 
-'./screenshots/repo-dashboard.png'
+![Repository Analytics Dashboard](screenshots/repo-dashboard.png)
 
 The dashboard presents:
 - **Overview Banner** — repository avatar, full name (owner/repo), description, direct GitHub link
@@ -114,7 +114,7 @@ The dashboard presents:
 
 > *Stacked area chart rendered with Recharts AreaChart. Displays monthly Issue Creators vs PR Creators (OSSInsight data) or Stars vs Forks (MongoDB history) over time.*
 
-'./screenshots/chart-history.png'
+![Historical Evolution Chart](screenshots/chart-history.png)
 
 **Data source:** OSSInsight `/issue_creators/history` and `/pull_request_creators/history` endpoints (primary), with fallback to MongoDB `history` array (Stars over time).
 
@@ -140,7 +140,7 @@ Stars / Issues
 
 > *Interactive WebGL globe built with `react-globe.gl` (Three.js under the hood). Shows animated rings at contributor locations, with ring radius proportional to the percentage of contributors from each country.*
 
-'./screenshots/globe-3d.png'
+![3D Contributor Globe](screenshots/globe-3d.png)
 
 **Data pipeline:**
 
@@ -174,7 +174,7 @@ Backend /api/projects/:name/locations
 > *Five-axis radar chart using Recharts RadarChart. Evaluates Stars, Forks, Watchers, Open Issues, and Repository Size — all normalized logarithmically to a [0–100] scale for fair comparison across metrics of vastly different magnitudes.*
 
 
-'./screenshots/radar-health.png'
+![Project Health Radar](screenshots/radar-health.png)
 
 **Normalization formula:**
 
@@ -209,7 +209,7 @@ This ensures a repository with 200K stars and one with 50 open issues are both r
 
 > *A "rose diagram" (Nightingale chart) rendered with Recharts PieChart. Each of the five sectors has a different outer radius, proportional to the logarithm of its metric value — encoding two dimensions simultaneously.*
 
-'./screenshots/pie-variable.png'
+![Variable Metrics Pie Chart](screenshots/pie-variable.png)
 
 **Radius mapping:**
 
@@ -232,7 +232,7 @@ getRadius(val) = 25 + (log10(val+1) / log10(maxVal+1)) × 65
 
 > *Horizontal bar chart (Recharts BarChart) showing the top 5 countries by contributor count. Preceded by a CSS-only radar scanning animation during the 1–3 minute geocoding process.*
 
-'./screenshots/demographics.png'
+![Demographics Bar Chart](screenshots/demographics.png)
 
 **Loading state:**
 - A radar scan animation (`DemographicsContainer`) with rotating sweep line, range rings, and blinking dots indicates background geocoding is in progress
@@ -257,7 +257,7 @@ getRadius(val) = 25 + (log10(val+1) / log10(maxVal+1)) × 65
 
 > *Concentric radial bar chart (Recharts RadialBarChart) representing all five repository metrics as independently sized arcs around a shared center point.*
 
-'./screenshots/radial-bar.png'
+![Radial Analysis Chart](screenshots/radial-bar.png)
 
 **Visual details:**
 - Five concentric arcs for Stars, Forks, Watchers, Issues, Size (MB)
@@ -271,7 +271,7 @@ getRadius(val) = 25 + (log10(val+1) / log10(maxVal+1)) × 65
 
 > *Side-by-side comparison of any two GitHub repositories. Features three synchronized visualizations: a head-to-head stats table, a custom SVG bar chart, and a dual-polygon radar chart.*
 
-'./screenshots/compare.png'
+![Repository Comparison](screenshots/compare.png)
 
 **Comparison metrics:** Stars, Forks, Watchers, Open Issues, Language, Contributors, Commits
 
@@ -299,7 +299,7 @@ getRadius(val) = 25 + (log10(val+1) / log10(maxVal+1)) × 65
 
 > *Paginated display of globally trending repositories sourced from the OSSInsight Hot Collections API. 10 repositories per page with smooth scroll-to-top on navigation.*
 
-'./screenshots/trending.png'
+![Trending Repositories](screenshots/trending.png)
 
 **Data source:** OSSInsight `/collections/hot/` endpoint — fetches up to ~60 unique repositories across multiple hot collection groups.
 
@@ -316,7 +316,7 @@ getRadius(val) = 25 + (log10(val+1) / log10(maxVal+1)) × 65
 
 > *Six pre-built professional scenarios filtering repositories by domain and geography, ideal for domain-specific technology discovery.*
 
-'./screenshots/usecases.png'
+![Professional Use Cases](screenshots/usecases.png)
 
 | Scenario | Domain Filter | Geography |
 |---|---|---|
