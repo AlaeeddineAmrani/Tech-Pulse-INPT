@@ -197,10 +197,10 @@ This ensures a repository with 200K stars and one with 50 open issues are both r
             ★
            /|\
           / | \
-    Size /  |  \ Forks
+   Size  /  |  \  Forks
         /   |   \
        /    |    \
-      Issues───Watchers
+ Issues    ───    Watchers
 ```
 
 ---
@@ -284,7 +284,7 @@ getRadius(val) = 25 + (log10(val+1) / log10(maxVal+1)) × 65
 3. **Overall Performance Radar** — dual overlapping polygons on a 5-axis radar (Stars, Forks, Watchers, Issues, Size), both log-normalized to [0–100]
 
 ```
-         Repo A (──)   Repo B (- -)
+ Repo A (──)           Repo B (──)
 
                Stars
               ╱   ╲
@@ -399,19 +399,19 @@ Repositories are filtered via the `/api/projects/usecases/filter?domain=X&countr
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │                        User Browser (React SPA)                     │
-│                                                                      │
-│  HomePage  RepoDetails  ComparePage  TrendingPage  UseCasesPage ...  │
-│       │          │            │            │              │          │
+│                                                                     │
+│  HomePage  RepoDetails  ComparePage  TrendingPage  UseCasesPage ... │
+│       │          │            │            │              │         │
 │       └──────────┴────────────┴────────────┴──────────────┘         │
-│                              │                                       │
+│                              │                                      │
 │              ┌───────────────┴───────────────────┐                  │
-│              │           Axios HTTP Client        │                  │
+│              │           Axios HTTP Client       │                  │
 │              └───────────────┬───────────────────┘                  │
 └──────────────────────────────┼──────────────────────────────────────┘
                                │
          ┌─────────────────────┴────────────────────┐
-         │                                           │
-         ▼                                           ▼
+         │                                          │
+         ▼                                          ▼
 ┌─────────────────────┐                  ┌────────────────────┐
 │  Express.js Backend │                  │  OSSInsight API    │
 │  (Node.js :2500)    │                  │  (direct client)   │
@@ -424,12 +424,12 @@ Repositories are filtered via the `/api/projects/usecases/filter?domain=X&countr
     │                             │
     ▼                             ▼
 ┌──────────────┐        ┌──────────────────────────┐
-│ MongoDB Atlas│        │     External APIs         │
-│              │        │                           │
-│ - Projects   │        │  GitHub REST API v3       │
-│ - history[]  │        │  GitHub GraphQL API v4    │
-│ - demograph[]│        │  Nominatim OSM            │
-│ - domainTags │        │                           │
+│ MongoDB Atlas│        │     External APIs        │
+│              │        │                          │
+│ - Projects   │        │  GitHub REST API v3      │
+│ - history[]  │        │  GitHub GraphQL API v4   │
+│ - demograph[]│        │  Nominatim OSM           │
+│ - domainTags │        │                          │
 │ - countryTags│        └──────────────────────────┘
 └──────────────┘
          ▲
@@ -599,7 +599,7 @@ Please follow the [Conventional Commits](https://www.conventionalcommits.org/) s
     </td>
     <td align="center">
       <b>ELMARRHOUB Anas</b><br/>
-      <sub>INPT — Rabat, Morocco</sub>
+      <a href="https://github.com/AnasElmarrhoub">@AnasElmarrhoub</a>
     </td>
   </tr>
 </table>
