@@ -8,9 +8,9 @@
 
 > A live GitHub analytics platform providing deep insights into the health, momentum, and global reach of open-source repositories — all in one place.
 <br />
-*Prepared by:* AMRANI Alaeeddine & ELMARRHOUB Anas
+Prepared by:  AMRANI Alaeeddine & ELMARRHOUB Anas
 <br />
-*Under the supervision of:* Prof. Yann Ben Maissa
+Under the supervision of:  Prof. Yann Ben Maissa
 <br />
 ASEDS Program · INPT · Academic Year 2025/2026
 <br/>
