@@ -7,7 +7,9 @@
 ### *Visualize Open Source Activity — Track, Analyze, Compare.*
 
 > A live GitHub analytics platform providing deep insights into the health, momentum, and global reach of open-source repositories — all in one place.
-
+> Prepared by: AMRANI Alaeeddine & ELMARRHOUB Anas
+Under the supervision of: Prof. Yann Ben Maissa
+ASEDS Program · INPT · Academic Year 2025/2026
 <br/>
 
 [![React](https://img.shields.io/badge/React-19.2-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
