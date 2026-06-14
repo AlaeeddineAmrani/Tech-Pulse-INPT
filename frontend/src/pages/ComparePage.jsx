@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { Search, Star, GitFork, Code, ArrowLeftRight, Eye, AlertCircle } from 'lucide-react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip } from 'recharts';
-import '../assets/styles/comparepage.css';
+import '../css/ComparePage.css';
 import '../css/RadarSante.css';
 
 function normaliser(valeur, max) {
