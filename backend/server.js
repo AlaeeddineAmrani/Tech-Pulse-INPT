@@ -16,6 +16,11 @@ app.use(express.json());
 
 const projectRoutes = require('./routes/projectRoutes');
 app.use('/api/projects', projectRoutes);
+app.use('/projects', projectRoutes);
+
+app.get(['/api/health', '/health'], (req, res) => {
+    res.status(200).json({ status: 'ok', serverless: !!process.env.VERCEL });
+});
 
 // Only start cron workers and listen when NOT running as a serverless function
 // Vercel sets VERCEL=1 in its environment

@@ -26,8 +26,9 @@ export default function TrendingPage() {
         }
 
         const data = await response.json();
+        const rawList = Array.isArray(data?.data) ? data.data : (Array.isArray(data) ? data : []);
 
-        const formattedData = data.data.map(project => {
+        const formattedData = rawList.map(project => {
           const [authorName, repoName] = project.full_name ? project.full_name.split('/') : ['Unknown', 'Unknown'];
 
           return {

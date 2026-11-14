@@ -27,8 +27,11 @@ export default function TrendingSection() {
         // Convert the response to JSON format
         const data = await response.json();
         
+        // Ensure data is an array
+        const reposList = Array.isArray(data) ? data : (Array.isArray(data?.data) ? data.data : []);
+
         // Slice the first 6 repositories
-        const top6Projects = data.slice(0, 6);
+        const top6Projects = reposList.slice(0, 6);
         
         // Format the projects to match our RepoCard perfectly
         const formattedData = top6Projects.map(project => {
