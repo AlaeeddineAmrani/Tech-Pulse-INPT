@@ -4,6 +4,7 @@ import RepoCard from '../components/RepoCard';
 import { FiArrowLeft } from 'react-icons/fi';
 import '../index.css';
 import '../css/RepoDetails.css';
+import { API_BASE_URL } from '../config/api'; 
 
 export default function SearchPage() {
   const { searchTerm } = useParams();
@@ -21,7 +22,7 @@ export default function SearchPage() {
         setError(null);
         
         // Search API with the search term
-        const response = await fetch(`http://localhost:2500/api/projects/recherche/${encodeURIComponent(searchTerm)}`);
+        const response = await fetch(`${API_BASE_URL}/projects/recherche/${encodeURIComponent(searchTerm)}`);
         
         if (!response.ok) {
           throw new Error('Failed to fetch search results');

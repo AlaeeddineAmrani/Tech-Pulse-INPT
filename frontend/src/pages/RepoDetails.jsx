@@ -12,6 +12,7 @@ import ChartRadialLabel from '../components/ChartRadialLabel.jsx';
 import usePrediction from '../hooks/usePrediction';
 import PredictionBadge from '../components/PredictionBadge';
 import '../css/RepoDetails.css';
+import { API_BASE_URL } from '../config/api'; 
 
 // Dictionnaire associant les codes ISO 2 des pays à leurs coordonnées centrales (200+ pays)
 const countryCoordinates = {
@@ -175,7 +176,7 @@ export default function RepoDetails() {
       if (!decodedFullName) return;
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:2500/api/projects/${encodeURIComponent(decodedFullName)}`);
+        const response = await axios.get(`${API_BASE_URL}/projects/${encodeURIComponent(decodedFullName)}`);
         if (response.data) {
           setProjet(response.data);
         } else {
@@ -316,7 +317,7 @@ export default function RepoDetails() {
             alert("This project is already in the database.");
             return;
           }
-          await axios.post('http://localhost:2500/api/projects', {
+          await axios.post('${API_BASE_URL}/projects', {
                 avatar_url: projet.avatar_url || (projet.owner && projet.owner.avatar_url),
                 full_name: projet.full_name,
                 description: projet.description,

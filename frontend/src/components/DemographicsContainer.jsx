@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../css/DemographicsContainer.css';
-
+import { API_BASE_URL } from '../config/api';
 import DemographicsChart from './DemographicsChart.jsx';
 
 const DemographicsContainer = ({ nomProjet, onDataLoaded }) => {
@@ -15,7 +15,7 @@ const DemographicsContainer = ({ nomProjet, onDataLoaded }) => {
       console.log(`[Demographics] Starting analysis for ${nomProjet}...`);
       try {
         // Call the real API
-        const response = await axios.get(`http://localhost:2500/api/projects/${encodeURIComponent(nomProjet)}/locations`);
+        const response = await axios.get(`${API_BASE_URL}/projects/${encodeURIComponent(nomProjet)}/locations`);
 
         if (isMounted) {
           setStatus('ready');

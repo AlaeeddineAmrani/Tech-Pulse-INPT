@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import RepoCard from './RepoCard';
+import { API_BASE_URL } from '../config/api'; 
 
 export default function TrendingSection() {
   // 1. Create state to hold our repositories (starts as an empty array)
@@ -17,7 +18,7 @@ export default function TrendingSection() {
     const fetchProjects = async () => {
       try {
         // Fetch from your backend URL for trending projects
-        const response = await fetch('http://localhost:2500/api/projects/trending');
+        const response = await fetch(`${API_BASE_URL}/trending`);
         
         if (!response.ok) {
           throw new Error('Failed to fetch data');

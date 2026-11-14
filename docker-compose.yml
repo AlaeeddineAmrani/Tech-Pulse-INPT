@@ -1,0 +1,55 @@
+services:
+  mongodb:
+    image: mongo:7
+    container_name: techpulse_mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - techpulse_mongo_data:/data/db
+    networks:
+      - techpulse_net
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: techpulse_backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: ${PORT:-2500}
+      MONGO_URI: ${MONGO_URI:-mongodb://mongodb:27017/techpulse}
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - techpulse_net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: /api
+    container_name: techpulse_frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - techpulse_net
+
+volumes:
+  techpulse_mongo_data:
+
+networks:
+  techpulse_net:
+    driver: bridge

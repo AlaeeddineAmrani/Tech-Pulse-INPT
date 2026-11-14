@@ -254,8 +254,13 @@ async function getTrendingPaginated(req, res) {
             headers: { 'Accept': 'application/json' }
         });
 
-        if (!hotResponse.data || !hotResponse.data.data || !hotResponse.data.data.rows) {
-            throw new Error("Format de réponse OSSInsight invalide");
+        if (
+            !hotResponse.data ||
+            !hotResponse.data.data ||
+            !Array.isArray(hotResponse.data.data.rows) ||
+            hotResponse.data.data.rows.length === 0
+        ) {
+            throw new Error("OSSInsight n'a renvoyé aucun dépôt trending");
         }
 
         const rows = hotResponse.data.data.rows;
@@ -319,7 +324,10 @@ async function getTrendingPaginated(req, res) {
             const startIndex = (page - 1) * limit;
 
             console.log("⚠️ Fallback sur la base locale pour les données paginées...");
-            const fallbackProjects = await Project.find().skip(startIndex).limit(limit);
+            const fallbackProjects = await Project.find()
+                .sort({ stargazers_count: -1 })
+                .skip(startIndex)
+                .limit(limit);
             const totalCount = await Project.countDocuments();
             const totalPages = Math.ceil(totalCount / limit);
 

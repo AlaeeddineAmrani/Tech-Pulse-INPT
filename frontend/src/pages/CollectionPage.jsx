@@ -4,6 +4,7 @@ import RepoCard from '../components/RepoCard';
 import { FiArrowLeft } from 'react-icons/fi';
 import '../index.css';
 import '../css/RepoDetails.css';
+import { API_BASE_URL } from '../config/api';
 
 export default function CollectionPage() {
   const { collectionName } = useParams();
@@ -21,7 +22,7 @@ export default function CollectionPage() {
         setError(null);
         
         // Search API with the collection name as keyword
-        const response = await fetch(`http://localhost:2500/api/projects/recherche/${encodeURIComponent(collectionName)}`);
+        const response = await fetch(`${API_BASE_URL}/projects/recherche/${encodeURIComponent(collectionName)}`);
         
         if (!response.ok) {
           throw new Error('Failed to fetch repositories for this collection');

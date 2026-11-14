@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import RepoCard from '../components/RepoCard';
 import { FiArrowLeft, FiFilter, FiBriefcase, FiMapPin, FiCpu } from 'react-icons/fi';
 import '../css/RepoDetails.css';
+import { API_BASE_URL } from '../config/api'; 
 
 export default function UseCasesPage() {
   const navigate = useNavigate();
@@ -69,7 +70,7 @@ export default function UseCasesPage() {
       if (selectedDomain) params.append('domain', selectedDomain);
       if (selectedCountry) params.append('country', selectedCountry);
 
-      const response = await axios.get(`http://localhost:2500/api/projects/usecases/filter?${params.toString()}`);
+      const response = await axios.get(`${API_BASE_URL}/projects/usecases/filter?${params.toString()}`);
       
       const formattedData = response.data.map(project => {
         const [authorName, repoName] = project.full_name ? project.full_name.split('/') : ['Author', 'Project'];

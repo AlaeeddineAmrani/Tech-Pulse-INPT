@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api';
 
 export default function usePrediction(repoId) {
   const [prediction, setPrediction] = useState(null);
@@ -14,7 +15,7 @@ export default function usePrediction(repoId) {
       setLoading(true);
       setError(null);
       try {
-        const response = await axios.get(`http://localhost:2500/api/projects/predictions/${encodeURIComponent(repoId)}`);
+        const response = await axios.get(`${API_BASE_URL}/projects/predictions/${encodeURIComponent(repoId)}`);
         if (isMounted) {
           setPrediction(response.data);
         }

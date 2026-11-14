@@ -4,6 +4,7 @@ import { Search, Star, GitFork, Code, ArrowLeftRight, Eye, AlertCircle } from 'l
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip } from 'recharts';
 import '../css/ComparePage.css';
 import '../css/RadarSante.css';
+import { API_BASE_URL } from '../config/api';
 
 function normaliser(valeur, max) {
   if (!valeur || valeur <= 0) return 0;
@@ -62,8 +63,7 @@ export default function ComparePage() {
 
         setLoading(prev => ({ ...prev, [side]: true }));
         try {
-            const apiUrl = import.meta.env.DEV ? 'http://localhost:2500' : '/_/backend';
-            const resp = await axios.get(`${apiUrl}/api/projects/recherche/${encodeURIComponent(mot)}`);
+            const resp = await axios.get(`${API_BASE_URL}/projects/recherche/${encodeURIComponent(mot)}`);
             const premier = resp.data[0] || null;
 
             if (side === 'left') {

@@ -3,6 +3,7 @@ import RepoCard from '../components/RepoCard';
 import { FiArrowLeft } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import '../index.css';
+import { API_BASE_URL } from '../config/api'; 
 
 export default function TrendingPage() {
   const [trendingRepos, setTrendingRepos] = useState([]);
@@ -18,7 +19,7 @@ export default function TrendingPage() {
         setIsLoading(true);
         setError(null);
 
-        const response = await fetch(`http://localhost:2500/api/projects/trending-paginated?page=${page}&limit=10`);
+        const response = await fetch(`${API_BASE_URL}/projects/trending-paginated?page=${page}&limit=10`);
 
         if (!response.ok) {
           throw new Error('Failed to fetch trending repositories');
