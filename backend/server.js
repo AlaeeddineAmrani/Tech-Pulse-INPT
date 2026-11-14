@@ -3,13 +3,16 @@ const PORT = process.env.PORT || 2500;
 const express = require('express');
 const cors = require('cors'); 
 const connectDB = require('./config/db'); 
+const { autoSeedIfEmpty } = require('./services/autoSeed');
 
 const app = express();
 
-// Connect to MongoDB (don't crash the serverless function if it fails)
-connectDB().catch(err => {
-    console.error("❌ MongoDB connection failed:", err.message);
-});
+// Connect to MongoDB and auto-seed default projects if DB is empty
+connectDB()
+    .then(() => autoSeedIfEmpty())
+    .catch(err => {
+        console.error("❌ MongoDB connection failed:", err.message);
+    });
 
 app.use(cors()); 
 app.use(express.json()); 
