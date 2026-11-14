@@ -2,11 +2,20 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(`${process.env.MONGO_URI}`);
+        const uri = process.env.MONGO_URI;
+        if (!uri) {
+            console.warn("⚠️ MONGO_URI is not set. Database features will be unavailable.");
+            return;
+        }
+        await mongoose.connect(uri);
         console.log("✅ Connexion à la base de données réussie !");
     } catch (err) {
         console.error("❌ Erreur de connexion :", err.message);
-        process.exit(1);
+        // In serverless / production, don't kill the process — let endpoints
+        // return errors gracefully instead of crashing the entire function.
+        if (!process.env.VERCEL) {
+            process.exit(1);
+        }
     }
 };
 

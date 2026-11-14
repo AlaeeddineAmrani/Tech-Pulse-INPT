@@ -1,0 +1,11 @@
+{
+  "name": "tech-pulse-inpt",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "vercel-build": "cd frontend && npm install && npm run build",
+    "postinstall": "cd backend && npm install"
+  }
+}

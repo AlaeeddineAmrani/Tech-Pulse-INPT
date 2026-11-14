@@ -317,7 +317,7 @@ export default function RepoDetails() {
             alert("This project is already in the database.");
             return;
           }
-          await axios.post('${API_BASE_URL}/projects', {
+          await axios.post(`${API_BASE_URL}/projects`, {
                 avatar_url: projet.avatar_url || (projet.owner && projet.owner.avatar_url),
                 full_name: projet.full_name,
                 description: projet.description,
