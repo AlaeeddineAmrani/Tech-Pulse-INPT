@@ -495,7 +495,7 @@ Tech-Pulse-INPT/
 **1. Clone the repository**
 
 ```bash
-git clone [https://github.com/AlaeeddineAmrani/Tech-Pulse-INPT.git](https://github.com/AlaeeddineAmrani/Tech-Pulse-INPT.git)
+git clone https://github.com/AlaeeddineAmrani/Tech-Pulse-INPT.git
 cd Tech-Pulse-INPT
 ```
 
