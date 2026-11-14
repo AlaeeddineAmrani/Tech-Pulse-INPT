@@ -7,7 +7,14 @@
 ### *Visualize Open Source Activity — Track, Analyze, Compare.*
 
 > A live GitHub analytics platform providing deep insights into the health, momentum, and global reach of open-source repositories — all in one place.
-
+<br />
+Prepared by:  AMRANI Alaeeddine & ELMARRHOUB Anas
+<br />
+Under the supervision of:  Prof. Yann Ben Maissa
+<br />
+<br/>
+ASEDS Program · INPT · Academic Year 2025/2026
+<br/>
 <br/>
 
 [![React](https://img.shields.io/badge/React-19.2-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
@@ -480,11 +487,10 @@ Tech-Pulse-INPT/
 
 ### Prerequisites
 
-- **Node.js** v18+ installed
-- **MongoDB** running locally or a [MongoDB Atlas](https://www.mongodb.com/atlas) account
+- **Docker** and **Docker Compose** installed on your machine
 - A **GitHub Personal Access Token** (increases rate limit from 60 to 5,000 req/hour)
 
-### Installation
+### Installation & Running with Docker
 
 **1. Clone the repository**
 
@@ -493,54 +499,42 @@ git clone https://github.com/AlaeeddineAmrani/Tech-Pulse-INPT.git
 cd Tech-Pulse-INPT
 ```
 
-**2. Install backend dependencies**
+**2. Configure environment variables**
 
-```bash
-cd backend
-npm install
-```
-
-**3. Install frontend dependencies**
-
-```bash
-cd ../frontend
-npm install
-```
-
-**4. Configure environment variables**
-
-Create a `.env` file in the `backend/` directory:
+Create a `.env` file at the root of the project:
 
 ```env
 PORT=2500
-MONGO_URI=mongodb+srv://<user>:<password>@cluster.mongodb.net/techpulse
+MONGO_URI=mongodb://mongodb:27017/techpulse
 GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-**5. Seed the database** *(optional but recommended)*
+**3. Build and start the containers**
 
 ```bash
-cd backend
-node services/initializeDB.js    # Seeds 15 popular repos + OSSInsight hot
-node seedMassive.js              # Bulk seeding across 6 domains (18 queries)
-node seedUseCases.js             # 6 curated use-case repos
+docker compose up --build -d
 ```
 
-**6. Start the application**
+**4. Seed the database** *(recommended for first-time setup)*
 
-Backend (port 2500):
 ```bash
-cd backend
-npm run dev
+docker compose exec backend node services/initializeDB.js    # Seeds 15 popular repos
+docker compose exec backend node seedMassive.js              # Bulk seeding across 6 domains (18 queries)
+docker compose exec backend node seedUseCases.js             # 6 curated use-case repos
 ```
 
-Frontend (port 5173):
+**5. Access the application**
+
+- **Frontend:** [http://localhost:3000](http://localhost:3000)
+- **Backend API:** [http://localhost:3000/api](http://localhost:3000/api)
+
+### Useful Docker Commands
+
 ```bash
-cd frontend
-npm run dev
+docker compose logs -f       # View real-time container logs
+docker compose down          # Stop and remove containers
+docker compose down -v       # Stop containers and reset the MongoDB volume
 ```
-
-Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ---
 
