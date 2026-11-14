@@ -18,7 +18,7 @@ export default function TrendingSection() {
     const fetchProjects = async () => {
       try {
         // Fetch from your backend URL for trending projects
-        const response = await fetch(`${API_BASE_URL}/trending`);
+        const response = await fetch(`${API_BASE_URL}/projects/trending`);
         
         if (!response.ok) {
           throw new Error('Failed to fetch data');
